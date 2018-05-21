@@ -1,0 +1,153 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+
+    <changeSet author="postgres" id="createDB2">
+        <createTable tableName="organization">
+            <column name="id" type="int" valueComputed="org_seq_id.NEXTVAL">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="contract">
+            <column name="id" valueComputed="contract_seq_id.NEXTVAL" type="int">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="amount" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="details" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="org_id" type="int">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="product">
+            <column name="id" valueComputed="product_seq_id.NEXTVAL" type="int">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="city" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="address" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <createTable tableName="payment">
+            <column name="id" valueComputed="payment_seq_id.NEXTVAL" type="int">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="contract_id" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="paymentType" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="dateOfDeal" type="timestamp">
+                <constraints nullable="false"/>
+            </column>
+            <column name="amount" type="int">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addForeignKeyConstraint baseColumnNames="contract_id"
+                                 baseTableName="payment"
+                                 constraintName="fk_payment_contract"
+                                 deferrable="true"
+                                 initiallyDeferred="true"
+                                 onDelete="CASCADE"
+                                 onUpdate="RESTRICT"
+                                 referencedColumnNames="id"
+                                 referencedTableName="contract"/>
+
+        <addForeignKeyConstraint baseColumnNames="org_id"
+                                 baseTableName="contract"
+                                 constraintName="fk_contract_org"
+                                 deferrable="true"
+                                 initiallyDeferred="true"
+                                 onDelete="CASCADE"
+                                 onUpdate="RESTRICT"
+                                 referencedColumnNames="id"
+                                 referencedTableName="organization"/>
+
+        <createTable tableName="location">
+            <column name="id" valueComputed="location_seq_id.NEXTVAL" type="int">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="city" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="address" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="org_id" type="int">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addForeignKeyConstraint baseColumnNames="org_id"
+                                 baseTableName="location"
+                                 constraintName="fk_location_org"
+                                 deferrable="true"
+                                 initiallyDeferred="true"
+                                 onDelete="CASCADE"
+                                 onUpdate="RESTRICT"
+                                 referencedColumnNames="id"
+                                 referencedTableName="organization"/>
+
+        <createTable tableName="shipment">
+            <column name="id" valueComputed="shipment_seq_id.NEXTVAL" type="int">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="product_id" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="product_count" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="location_id" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="dateOfWaitSend" type="timestamp">
+                <constraints nullable="false"/>
+            </column>
+            <column name="dateOfWaitDelivery" type="timestamp">
+                <constraints nullable="false"/>
+            </column>
+            <column name="dateOfFactSend" type="timestamp">
+                <constraints nullable="false"/>
+            </column>
+            <column name="dateOfFactDelivery" type="timestamp">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addForeignKeyConstraint baseColumnNames="product_id"
+                                 baseTableName="shipment"
+                                 constraintName="fk_shipment_product"
+                                 deferrable="true"
+                                 initiallyDeferred="true"
+                                 onDelete="CASCADE"
+                                 onUpdate="RESTRICT"
+                                 referencedColumnNames="id"
+                                 referencedTableName="product"/>
+        <addForeignKeyConstraint baseColumnNames="location_id"
+                                 baseTableName="shipment"
+                                 constraintName="fk_shipment_location"
+                                 deferrable="true"
+                                 initiallyDeferred="true"
+                                 onDelete="CASCADE"
+                                 onUpdate="RESTRICT"
+                                 referencedColumnNames="id"
+                                 referencedTableName="location"/>
+    </changeSet>
+
+</databaseChangeLog>

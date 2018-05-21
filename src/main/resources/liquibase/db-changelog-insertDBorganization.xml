@@ -1,0 +1,31 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+
+    <changeSet author="postgres" id="insertDB4">
+        <insert tableName="organization">
+            <column name="id" valueComputed="nextval('org_seq_id')"/>
+            <column name="name" value="ООО Молоко"/>
+        </insert>
+        <insert tableName="organization">
+            <column name="id" valueComputed="nextval('org_seq_id')"/>
+            <column name="name" value="ООО Хлеб"/>
+        </insert>
+        <insert tableName="organization">
+            <column name="id" valueComputed="nextval('org_seq_id')"/>
+            <column name="name" value="ООО Рыба"/>
+        </insert>
+        <insert tableName="organization">
+            <column name="id" valueComputed="nextval('org_seq_id')"/>
+            <column name="name" value="ООО Чай"/>
+        </insert>
+        <insert tableName="organization">
+            <column name="id" valueComputed="nextval('org_seq_id')"/>
+            <column name="name" value="ООО Кофе"/>
+        </insert>
+    </changeSet>
+
+
+</databaseChangeLog>

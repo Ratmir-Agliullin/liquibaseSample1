@@ -1,0 +1,28 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <!--<changeSet id="insert_values2" author="postgres">-->
+        <!--&lt;!&ndash;<renameColumn tableName="public.sample" oldColumnName="sample_id" newColumnName="sample_task" columnDataType="varchar(50)"/>&ndash;&gt;-->
+        <!--<insert tableName="organization">-->
+            <!--<column name="orgname" value="ООО 'Рыба'"/>-->
+        <!--</insert>-->
+    <!--</changeSet>-->
+
+    <changeSet author="postgres" id="add_increment_sample6">
+        <createTable tableName="sample">
+            <column name="id" type="int">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name="data" type="varchar(64)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="add_increment_sample7" author="postgres">
+        <comment>Auto increment the primary keys</comment>
+        <addAutoIncrement tableName="sample" columnName="id" columnDataType="int"/>
+    </changeSet>
+
+</databaseChangeLog>

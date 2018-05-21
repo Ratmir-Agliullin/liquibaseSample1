@@ -1,0 +1,39 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+
+    <changeSet author="postgres" id="location1">
+        <insert tableName="location">
+            <column name="id" valueComputed="nextval('contract_seq_id')"/>
+            <column name="city" value="Челябинск"/>
+            <column name="address" value="Ленина, 30"/>
+            <column name="org_id" value="10"/>
+        </insert>
+        <insert tableName="location">
+            <column name="id" valueComputed="nextval('contract_seq_id')"/>
+            <column name="city" value="Казань"/>
+            <column name="address" value="Ворошилова, 30"/>
+            <column name="org_id" value="10"/>
+        </insert>
+        <insert tableName="location">
+            <column name="id" valueComputed="nextval('contract_seq_id')"/>
+            <column name="city" value="Казань"/>
+            <column name="address" value="Комсомольская, 12"/>
+            <column name="org_id" value="18"/>
+        </insert>
+        <insert tableName="location">
+            <column name="id" valueComputed="nextval('contract_seq_id')"/>
+            <column name="city" value="Челябинск"/>
+            <column name="address" value="Казанская, 1"/>
+            <column name="org_id" value="20"/>
+        </insert>
+        <insert tableName="location">
+            <column name="id" valueComputed="nextval('contract_seq_id')"/>
+            <column name="city" value="Екатеринбург"/>
+            <column name="address" value="Уральская, 2"/>
+            <column name="org_id" value="22"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

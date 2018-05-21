@@ -1,0 +1,46 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+
+    <changeSet author="postgres" id="insertDB11">
+        <insert tableName="contract">
+            <column name="id" valueComputed="nextval('contract_seq_id')"/>
+            <column name="details" value="Договор поставки мяса"/>
+            <column name="amount" value="12150000"/>
+            <column name="org_id" value="10"/>
+        </insert>
+        <insert tableName="contract">
+            <column name="id" valueComputed="nextval('contract_seq_id')"/>
+            <column name="details" value="Договор поставки мяса"/>
+            <column name="amount" value="150000"/>
+            <column name="org_id" value="10"/>
+        </insert>
+        <insert tableName="contract">
+            <column name="id" valueComputed="nextval('contract_seq_id')"/>
+            <column name="details" value="Договор поставки рыба"/>
+            <column name="amount" value="1215000"/>
+            <column name="org_id" value="18"/>
+        </insert>
+        <insert tableName="contract">
+            <column name="id" valueComputed="nextval('contract_seq_id')"/>
+            <column name="details" value="Договор поставки чая"/>
+            <column name="amount" value="211000"/>
+            <column name="org_id" value="20"/>
+        </insert>
+        <insert tableName="contract">
+            <column name="id" valueComputed="nextval('contract_seq_id')"/>
+            <column name="details" value="Договор поставки кофе"/>
+            <column name="amount" value="540000"/>
+            <column name="org_id" value="22"/>
+        </insert>
+
+        <insert tableName="contract">
+            <column name="id" valueComputed="nextval('contract_seq_id')"/>
+            <column name="details" value="Договор поставки Хлеба"/>
+            <column name="amount" value="700000"/>
+            <column name="org_id" value="16"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

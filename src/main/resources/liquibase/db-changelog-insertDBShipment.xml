@@ -1,0 +1,49 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+
+    <changeSet author="postgres" id="shipmentPayment1">
+        <insert tableName="shipment">
+            <column name="id" valueComputed="nextval('contract_seq_id')"/>
+            <column name="product_id" value="74"/>
+            <column name="product_count" value="1"/>
+            <column name="location_id" value="64"/>
+            <column name="dateOfWaitSend" value="2018-03-29T13:14:15"/>
+            <column name="dateOfWaitDelivery" value="2018-03-29T14:14:15"/>
+            <column name="dateOfFactSend" value="2018-03-30T13:14:15"/>
+            <column name="dateOfFactDelivery" value="2018-04-01T13:14:15"/>
+        </insert>
+        <insert tableName="shipment">
+            <column name="id" valueComputed="nextval('contract_seq_id')"/>
+            <column name="product_id" value="76"/>
+            <column name="product_count" value="1"/>
+            <column name="location_id" value="68"/>
+            <column name="dateOfWaitSend" value="2018-03-29T13:18:15"/>
+            <column name="dateOfWaitDelivery" value="2018-03-29T20:14:15"/>
+            <column name="dateOfFactSend" value="2018-03-30T20:15:15"/>
+            <column name="dateOfFactDelivery" value="2018-04-02T13:14:15"/>
+        </insert>
+        <insert tableName="shipment">
+            <column name="id" valueComputed="nextval('contract_seq_id')"/>
+            <column name="product_id" value="78"/>
+            <column name="product_count" value="1"/>
+            <column name="location_id" value="70"/>
+            <column name="dateOfWaitSend" value="2018-03-30T13:18:15"/>
+            <column name="dateOfWaitDelivery" value="2018-04-01T10:14:15"/>
+            <column name="dateOfFactSend" value="2018-03-30T20:15:15"/>
+            <column name="dateOfFactDelivery" value="2018-04-02T10:14:15"/>
+        </insert>
+        <insert tableName="shipment">
+            <column name="id" valueComputed="nextval('contract_seq_id')"/>
+            <column name="product_id" value="80"/>
+            <column name="product_count" value="1"/>
+            <column name="location_id" value="72"/>
+            <column name="dateOfWaitSend" value="2018-03-30T14:18:15"/>
+            <column name="dateOfWaitDelivery" value="2018-04-01T08:14:15"/>
+            <column name="dateOfFactSend" value="2018-03-30T21:15:15"/>
+            <column name="dateOfFactDelivery" value="2018-04-01T10:14:15"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

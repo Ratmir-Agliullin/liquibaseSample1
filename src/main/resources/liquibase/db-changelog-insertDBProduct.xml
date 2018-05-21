@@ -1,0 +1,33 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+
+    <changeSet author="postgres" id="product1">
+        <insert tableName="product">
+            <column name="id" valueComputed="nextval('contract_seq_id')"/>
+            <column name="name" value="Мясо"/>
+        </insert>
+        <insert tableName="product">
+            <column name="id" valueComputed="nextval('contract_seq_id')"/>
+            <column name="name" value="Рыба"/>
+        </insert>
+        <insert tableName="product">
+            <column name="id" valueComputed="nextval('contract_seq_id')"/>
+            <column name="name" value="Чай"/>
+        </insert>
+        <insert tableName="product">
+            <column name="id" valueComputed="nextval('contract_seq_id')"/>
+            <column name="name" value="Кофе"/>
+        </insert>
+        <insert tableName="product">
+            <column name="id" valueComputed="nextval('contract_seq_id')"/>
+            <column name="name" value="Хлеб"/>
+        </insert>
+        <insert tableName="product">
+            <column name="id" valueComputed="nextval('contract_seq_id')"/>
+            <column name="name" value="Молоко"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

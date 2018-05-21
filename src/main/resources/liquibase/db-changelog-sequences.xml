@@ -1,0 +1,53 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="sequence8" author="postgres">
+        <createSequence catalogName="public"
+                        cycle="true"
+                        incrementBy="2"
+                        minValue="10"
+                        maxValue="1000"
+                        startValue="10"
+                        ordered="false"
+                        schemaName="public"
+                        sequenceName="org_seq_id"/>
+        <createSequence cycle="true"
+                        incrementBy="2"
+                        minValue="10"
+                        startValue="10"
+                        ordered="false"
+                        schemaName="public"
+                        sequenceName="location_seq_id" />
+        <createSequence cycle="true"
+                        incrementBy="2"
+                        minValue="10"
+                        startValue="10"
+                        ordered="false"
+                        schemaName="public"
+                        sequenceName="contract_seq_id" />
+        <createSequence cycle="true"
+                        incrementBy="2"
+                        minValue="10"
+                        startValue="10"
+                        ordered="false"
+                        schemaName="public"
+                        sequenceName="payment_seq_id" />
+        <createSequence cycle="true"
+                        incrementBy="2"
+                        minValue="10"
+                        startValue="10"
+                        ordered="false"
+                        schemaName="public"
+                        sequenceName="product_seq_id" />
+        <createSequence cycle="true"
+                        incrementBy="2"
+                        minValue="10"
+                        startValue="10"
+                        ordered="false"
+                        schemaName="public"
+                        sequenceName="shipment_seq_id" />
+    </changeSet>
+
+</databaseChangeLog>
