@@ -1,0 +1,30 @@
+Отчеты:
+3) select name from product where id=
+(select product_id, MAX(product_count) from shipment having MONTH(dateOfFactDeliver)=MONTH(NOW))
+4) select top 1 max(city) from (
+select count(city) as cit from shipment join location on shipment.location_id=location.id order cit by ASC)
+
+5) select city, address from location where location_id=(select location_id, dateOfFactDeliver-dateOfFactSend as dateLuft from shipment order by dateLuft ASC)
+
+ограничения:
+2)
+create trigger audit on contract after insert
+begin
+if (contract.amount>1000) insert into audit_table(contract_id,amount) values(contract_id,amount)
+end;
+go
+3)
+create trigger limit_product_count on shipment after insert
+begin
+if (product_count>10) begin
+set current = product_count
+while current>10
+begin
+current = current-10
+insert into shipment(product_id, product_count,dateOfWaitSend, dateOfWaitDeliver,
+dateOfFactSend, dateOfFactDeliver,location_id) values(product_id, current,dateOfWaitSend, dateOfWaitDeliver,
+dateOfFactSend, dateOfFactDeliver,location_id)
+end
+end
+end;
+go
