@@ -11,4 +11,4 @@ on c.contract_id = contract.id)
 Ограничения:
 №1  ALTER TABLE payment ALTER COLUMN amount TYPE int CHECK ( amount < 500);
 
-  Остальные пункты задания по отчетам и ограничениям не успел доделать. В файле samples.txt есть наброски.
+Остальные пункты задания по отчетам и ограничениям не успел доделать. В файле samples.txt есть наброски.
